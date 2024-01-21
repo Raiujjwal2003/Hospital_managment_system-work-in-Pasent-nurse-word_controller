@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Checkbox Form Example</title>
+  </head>
+  <body>
+    <form >
+      <label>
+        <input type="checkbox" name="fruit[]" value="apple"> Apple
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="fruit[]" value="banana" required > Banana
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="fruit[]" value="orange"> Orange
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="fruit[]" value="mango"> Mango
+      </label>
+      <br>
+      <label>
+        <input type="checkbox" name="fruit[]" value="grape"> Grape
+      </label>
+      <br>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+
+
+VALUES('$_POST[role]', '$_POST[per1]','$_POST[per2]','$_POST[per3]','$_POST[per4]','$_POST[per5]','$_POST[per6]','$_POST[per7]','$_POST[per8]','$_POST[per9]','$_POST[per10]')
+
+
+
+<?php
+
+ include 'connection.php';
+    
+$role = isset($_POST['role']) ? $_POST['role'] : '';
+$checkbox1 = isset($_POST['per1']) ? $_POST['per1'] : '';
+$checkbox2 = isset($_POST['per2']) ? $_POST['per2'] : '';
+$checkbox3 = isset($_POST['per3']) ? $_POST['per3'] : '';
+$checkbox4 = isset($_POST['per4']) ? $_POST['per4'] : '';
+$checkbox5 = isset($_POST['per5']) ? $_POST['per5'] : '';
+$checkbox6 = isset($_POST['per6']) ? $_POST['per6'] : '';
+$checkbox7 = isset($_POST['per7']) ? $_POST['per7'] : '';
+$checkbox8 = isset($_POST['per8']) ? $_POST['per8'] : '';
+$checkbox9 = isset($_POST['per9']) ? $_POST['per9'] : '';
+$checkbox10 = isset($_POST['per10']) ? $_POST['per10'] : '';
+
+ $sql = "INSERT INTO role_control(`role`, `notification_send`, `balance_drives`,`my_account`,`drivers`,`manage_ride`,`pickup_user`,`destination_users`,`price_rate`,`reffrel_amount_notification`,`bank_setting`)
+VALUES ('$role''$checkbox1', '$checkbox2', '$checkbox3', '$checkbox4', '$checkbox5', '$checkbox6','$checkbox7', '$checkbox8', '$checkbox9', '$checkbox10')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+  
+  ?>
